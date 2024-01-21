@@ -2,7 +2,10 @@ using SharpConfig;
 using System.Diagnostics;
 using System.Drawing.Text;
 using System.IO;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Xml.Linq;
 
 namespace AUL
 {
@@ -13,8 +16,8 @@ namespace AUL
             InitializeComponent();
         }
 
-        private readonly string[] AllModList = { "AllTheRoles", "Nebula", "SuperNewRoles", "ExtremeRoles", "LasMonjas", "TheOtherRoles", "TownOfHost", "TONX", "TownOfUs", "TOHE", "TOHEXI" };
-        private readonly string[] ReactorRequestedModList = { "AllTheRoles", "LasMonjas", "TownOfUs" };
+        private readonly string[] AllModList = { "AllTheRoles", "Nebula", "SuperNewRoles", "ExtremeRoles", "LasMonjas", "TheOtherRoles", "TownOfHost", "TONX", "TownOfUs", "TOHE", "TOHEXI", "StellarRoles" };
+        private readonly string[] ReactorRequestedModList = { "AllTheRoles", "LasMonjas", "TownOfUs", "StellarRoles" };
 
         private bool isLoading = false;
         private string mciName = null;
@@ -47,6 +50,7 @@ namespace AUL
                 gamePathChoose.SelectedIndex = -1;
                 refreshGamePathesList();
                 isLoading = false;
+                disableAll();
                 return;
             }
             path += "\\BepInEx\\plugins\\";
@@ -141,6 +145,10 @@ namespace AUL
 
             consoleStatus.Checked = isConsoleEnabled();
             isLoading = false;
+            CrowdedModInstaller.Enabled = reactorEnableChecker.Checked && !crowdedModEnableChecker.Enabled;
+            mciInstaller.Enabled = !mciEnableChecker.Enabled;
+            reactorInstaller.Enabled = !reactorEnableChecker.Enabled && !reactorEnableChecker.Checked;
+            openPath.Enabled = true;
         }
 
         private void addGamePath(string path)
@@ -218,6 +226,10 @@ namespace AUL
             crowdedModEnableChecker.Enabled = false;
             submergedEnableChecker.Enabled = false;
             mciEnableChecker.Enabled = false;
+            CrowdedModInstaller.Enabled = false;
+            mciInstaller.Enabled = false;
+            reactorInstaller.Enabled = false;
+            openPath.Enabled = false;
         }
 
         private void startButton_Click(object sender, EventArgs e)
@@ -331,9 +343,83 @@ namespace AUL
             submergedEnableChecker.CheckedChanged += new EventHandler(submergedModEnabled_Click);
             mciEnableChecker.CheckedChanged += new EventHandler(mciModEnabled_Click);
             downloadButton.Click += new EventHandler(downloadButton_Click);
+            CrowdedModInstaller.Click += new EventHandler(CrowdedModInstaller_Click);
+            mciInstaller.Click += new EventHandler(mciInstaller_Click);
+            reactorInstaller.Click += new EventHandler(reactorInstaller_Click);
+            openPath.Click += new EventHandler(openPath_Click);
             initGamePathes();
 
             //downloadButton.Enabled = false;
+        }
+
+        private void CrowdedModInstaller_Click(object sender, EventArgs e)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            Stream? stream = assembly.GetManifestResourceStream("AUL.Resources.CrowdedMod.dll");
+            if (stream == null) return;
+
+            var file = File.Create(gamePathChoose.SelectedItem.ToString() + "\\BepInEx\\plugins\\CrowdedMod.dll");
+            byte[] data = new byte[stream.Length];
+            stream.Read(data);
+            file.Write(data);
+            stream.Close();
+            file.Close();
+
+            refreshButton.PerformClick();
+        }
+
+        private void mciInstaller_Click(object sender, EventArgs e)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            Stream? stream = assembly.GetManifestResourceStream("AUL.Resources.AmongUs.MCI.v0.0.6.dll");
+            if (stream == null) return;
+
+            var file = File.Create(gamePathChoose.SelectedItem.ToString() + "\\BepInEx\\plugins\\AmongUs.MCI.v0.0.6.dll");
+            byte[] data = new byte[stream.Length];
+            stream.Read(data);
+            file.Write(data);
+            stream.Close();
+            file.Close();
+
+            refreshButton.PerformClick();
+        }
+
+        private void reactorInstaller_Click(object sender, EventArgs e)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            Stream? stream = assembly.GetManifestResourceStream("AUL.Resources.Reactor.dll");
+            if (stream == null) return;
+
+            var file = File.Create(gamePathChoose.SelectedItem.ToString() + "\\BepInEx\\plugins\\Reactor.dll");
+            byte[] data = new byte[stream.Length];
+            stream.Read(data);
+            file.Write(data);
+            stream.Close();
+            file.Close();
+
+            refreshButton.PerformClick();
+        }
+
+        private void openPath_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", gamePathChoose.SelectedItem.ToString());
+        }
+
+        private void refreshServers_Click(object sender, EventArgs e)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            Stream? stream = assembly.GetManifestResourceStream("AUL.Resources.ServerInstaller.exe");
+            if (stream == null) return;
+
+            var file = File.Create("ServerInstaller.exe");
+            byte[] data = new byte[stream.Length];
+            stream.Read(data);
+            file.Write(data);
+            stream.Close();
+            file.Close();
+
+            System.Diagnostics.Process.Start("ServerInstaller.exe");
+            Application.Exit();
         }
     }
 }

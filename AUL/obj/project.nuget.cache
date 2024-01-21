@@ -1,20 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "V1kf+wurcaJmkOpqJQeCw/DM9iYiOKAot6SfpYSSzM9F8sA9WnVsLC7uqDH/I+/IclL161pGpw5hwP54xrx2dA==",
+  "dgSpecHash": "2vfOGRXiedF0O4nu6QBbd5er2XMTAi6KyV53fUFLWVWUt4+JAXN/r6GlR4n5wvTjtWdM5afaItZPBzsyyCTAaw==",
   "success": true,
   "projectFilePath": "D:\\AUL\\AUL\\AUL\\AUL.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\a1234\\.nuget\\packages\\dotnetzip\\1.16.0\\dotnetzip.1.16.0.nupkg.sha512",
-    "C:\\Users\\a1234\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.1\\microsoft.netcore.platforms.3.1.1.nupkg.sha512",
-    "C:\\Users\\a1234\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\a1234\\.nuget\\packages\\ilrepack\\2.0.27\\ilrepack.2.0.27.nupkg.sha512",
     "C:\\Users\\a1234\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\a1234\\.nuget\\packages\\sharpconfig\\3.2.9.1\\sharpconfig.3.2.9.1.nupkg.sha512",
-    "C:\\Users\\a1234\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
-    "C:\\Users\\a1234\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
-    "C:\\Users\\a1234\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
-    "C:\\Users\\a1234\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
-    "C:\\Users\\a1234\\.nuget\\packages\\system.text.encoding.codepages\\4.7.1\\system.text.encoding.codepages.4.7.1.nupkg.sha512",
-    "C:\\Users\\a1234\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+    "C:\\Users\\a1234\\.nuget\\packages\\sharpconfig\\3.2.9.1\\sharpconfig.3.2.9.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -10,13 +10,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\AmongUs.MCI.v0.0.6.dll" />
+    <None Remove="Resources\CrowdedMod.dll" />
+    <None Remove="Resources\ServerInstaller.exe" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="b_a1e2364edd9483025657e17e442eb20b.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotNetZip" Version="1.16.0" />
+    <EmbeddedResource Include="Resources\AmongUs.MCI.v0.0.6.dll" />
+    <EmbeddedResource Include="Resources\CrowdedMod.dll" />
+    <EmbeddedResource Include="Resources\ServerInstaller.exe" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ILRepack" Version="2.0.27">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="sharpconfig" Version="3.2.9.1" />
   </ItemGroup>
-
+	
 </Project>

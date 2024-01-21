@@ -71,6 +71,7 @@
             Controls.Add(label1);
             Controls.Add(downloadButton);
             Controls.Add(listBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "DownloadScreen";
             Text = "Download";

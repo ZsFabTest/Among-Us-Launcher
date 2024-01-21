@@ -53,6 +53,11 @@
             modNameShower = new Label();
             gameFolderSelection = new FolderBrowserDialog();
             downloadButton = new Button();
+            CrowdedModInstaller = new Button();
+            mciInstaller = new Button();
+            reactorInstaller = new Button();
+            openPath = new Button();
+            refreshServers = new Button();
             SuspendLayout();
             // 
             // reactorEnableChecker
@@ -98,7 +103,7 @@
             // gamePathChoose
             // 
             gamePathChoose.FormattingEnabled = true;
-            gamePathChoose.Location = new Point(28, 374);
+            gamePathChoose.Location = new Point(28, 394);
             gamePathChoose.Name = "gamePathChoose";
             gamePathChoose.Size = new Size(634, 39);
             gamePathChoose.TabIndex = 4;
@@ -129,7 +134,7 @@
             // 
             // addButton
             // 
-            addButton.Location = new Point(668, 374);
+            addButton.Location = new Point(668, 394);
             addButton.Name = "addButton";
             addButton.Size = new Size(47, 39);
             addButton.TabIndex = 8;
@@ -138,7 +143,7 @@
             // 
             // refreshButton
             // 
-            refreshButton.Location = new Point(28, 419);
+            refreshButton.Location = new Point(28, 439);
             refreshButton.Name = "refreshButton";
             refreshButton.Size = new Size(74, 39);
             refreshButton.TabIndex = 9;
@@ -147,7 +152,7 @@
             // 
             // gameStartButton
             // 
-            gameStartButton.Location = new Point(623, 426);
+            gameStartButton.Location = new Point(623, 446);
             gameStartButton.Name = "gameStartButton";
             gameStartButton.Size = new Size(150, 46);
             gameStartButton.TabIndex = 10;
@@ -157,7 +162,7 @@
             // consoleStatus
             // 
             consoleStatus.AutoSize = true;
-            consoleStatus.Location = new Point(607, 319);
+            consoleStatus.Location = new Point(607, 224);
             consoleStatus.Name = "consoleStatus";
             consoleStatus.Size = new Size(166, 35);
             consoleStatus.TabIndex = 11;
@@ -167,23 +172,77 @@
             // modNameShower
             // 
             modNameShower.AutoSize = true;
-            modNameShower.Location = new Point(128, 427);
+            modNameShower.Location = new Point(128, 443);
             modNameShower.Name = "modNameShower";
             modNameShower.Size = new Size(0, 31);
             modNameShower.TabIndex = 12;
             // 
             // downloadButton
             // 
-            downloadButton.Location = new Point(471, 419);
+            downloadButton.Location = new Point(471, 439);
             downloadButton.Name = "downloadButton";
             downloadButton.Size = new Size(126, 39);
             downloadButton.TabIndex = 13;
             downloadButton.Text = "获取模组";
             downloadButton.UseVisualStyleBackColor = true;
             // 
+            // CrowdedModInstaller
+            // 
+            CrowdedModInstaller.Location = new Point(28, 265);
+            CrowdedModInstaller.Name = "CrowdedModInstaller";
+            CrowdedModInstaller.Size = new Size(302, 46);
+            CrowdedModInstaller.TabIndex = 14;
+            CrowdedModInstaller.Text = "安装CrowdedMod(7.12s)";
+            CrowdedModInstaller.UseVisualStyleBackColor = true;
+            CrowdedModInstaller.Click += CrowdedModInstaller_Click;
+            // 
+            // mciInstaller
+            // 
+            mciInstaller.Location = new Point(28, 322);
+            mciInstaller.Name = "mciInstaller";
+            mciInstaller.Size = new Size(302, 46);
+            mciInstaller.TabIndex = 15;
+            mciInstaller.Text = "安装MCI(0.0.6)";
+            mciInstaller.UseVisualStyleBackColor = true;
+            // 
+            // reactorInstaller
+            // 
+            reactorInstaller.Location = new Point(360, 265);
+            reactorInstaller.Name = "reactorInstaller";
+            reactorInstaller.Size = new Size(302, 46);
+            reactorInstaller.TabIndex = 16;
+            reactorInstaller.Text = "安装Reactor(7.12s)";
+            reactorInstaller.UseVisualStyleBackColor = true;
+            reactorInstaller.Click += reactorInstaller_Click;
+            // 
+            // openPath
+            // 
+            openPath.Location = new Point(360, 322);
+            openPath.Name = "openPath";
+            openPath.Size = new Size(150, 46);
+            openPath.TabIndex = 17;
+            openPath.Text = "打开目录";
+            openPath.UseVisualStyleBackColor = true;
+            openPath.Click += openPath_Click;
+            // 
+            // refreshServers
+            // 
+            refreshServers.Location = new Point(512, 322);
+            refreshServers.Name = "refreshServers";
+            refreshServers.Size = new Size(150, 46);
+            refreshServers.TabIndex = 18;
+            refreshServers.Text = "更新私服";
+            refreshServers.UseVisualStyleBackColor = true;
+            refreshServers.Click += refreshServers_Click;
+            // 
             // MainScreen
             // 
-            ClientSize = new Size(785, 484);
+            ClientSize = new Size(785, 501);
+            Controls.Add(refreshServers);
+            Controls.Add(openPath);
+            Controls.Add(reactorInstaller);
+            Controls.Add(mciInstaller);
+            Controls.Add(CrowdedModInstaller);
             Controls.Add(downloadButton);
             Controls.Add(modNameShower);
             Controls.Add(consoleStatus);
@@ -198,6 +257,7 @@
             Controls.Add(submergedEnableChecker);
             Controls.Add(crowdedModEnableChecker);
             Controls.Add(reactorEnableChecker);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainScreen";
             Text = "Among Us Launcher";
@@ -207,6 +267,11 @@
         }
 
         private Button downloadButton;
+        private Button CrowdedModInstaller;
+        private Button mciInstaller;
+        private Button reactorInstaller;
+        private Button openPath;
+        private Button refreshServers;
 
 
 

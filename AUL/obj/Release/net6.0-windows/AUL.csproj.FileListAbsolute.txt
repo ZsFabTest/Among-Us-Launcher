@@ -18,5 +18,4 @@ D:\AUL\AUL\AUL\obj\Release\net6.0-windows\AUL.pdb
 D:\AUL\AUL\AUL\obj\Release\net6.0-windows\AUL.genruntimeconfig.cache
 D:\AUL\AUL\AUL\obj\Release\net6.0-windows\ref\AUL.dll
 D:\AUL\AUL\AUL\obj\Release\net6.0-windows\AUL.DownloadScreen.resources
-D:\AUL\AUL\AUL\bin\Release\net6.0-windows\DotNetZip.dll
 D:\AUL\AUL\AUL\bin\Release\net6.0-windows\Newtonsoft.Json.dll

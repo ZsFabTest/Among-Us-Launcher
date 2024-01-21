@@ -19,4 +19,3 @@ D:\AUL\AUL\AUL\bin\Debug\net6.0-windows\SharpConfig.dll
 D:\AUL\AUL\AUL\obj\Debug\net6.0-windows\AUL.csproj.CopyComplete
 D:\AUL\AUL\AUL\obj\Debug\net6.0-windows\AUL.DownloadScreen.resources
 D:\AUL\AUL\AUL\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
-D:\AUL\AUL\AUL\bin\Debug\net6.0-windows\DotNetZip.dll

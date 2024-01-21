@@ -16,7 +16,6 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Newtonsoft.Json;
 using System.IO;
-using Ionic.Zip;
 
 namespace AUL
 {
@@ -68,30 +67,7 @@ namespace AUL
             string json = await response.Content.ReadAsStringAsync();
             tagInfo info = JsonConvert.DeserializeObject<tagInfo>(json);
             url = "https://mirror.ghproxy.com/" + info.assets.FirstOrDefault((ass) => ass.browser_download_url.Contains(".zip")).browser_download_url;
-            var repos = await httpClient.GetAsync(url);
-            if (repos.StatusCode != HttpStatusCode.OK) return;
-            var dllStream = await repos.Content.ReadAsStreamAsync();
-
-            using var fileStream = File.Create("Download.zip");
-            dllStream.CopyTo(fileStream);
-            fileStream.Flush();
-            /*
-            label1.Text = $"正在解压...";
-
-
-            if (Directory.Exists(".\\Extract\\"))
-            {
-                DirectoryInfo di = new DirectoryInfo(".\\Extract\\");
-                di.Delete(true);
-            }
-            Directory.CreateDirectory(".\\Extract\\");
-            //MessageBox.Show("\"" + System.Environment.CurrentDirectory + "\\Download.zip\"");
-            //ZipFile.ExtractToDirectory("\"" + System.Environment.CurrentDirectory + "\\Download.zip\"", "\"" + folderBrowserDialog1.SelectedPath + "\"");
-            new ZipFile("Download.zip").ExtractAll(".\\Extract\\");
-            //File.Delete(".\\Download.zip");
-            */
-            MessageBox.Show("下载完成\n存放在目录中\n解压后拷贝至游戏文件夹", "提示");
-            System.Diagnostics.Process.Start("Explorer.exe", System.Environment.CurrentDirectory + "\\Download.zip");
+            Process.Start("explorer.exe",url);
             this.Close();
         }
 
