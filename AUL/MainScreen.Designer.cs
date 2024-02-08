@@ -211,7 +211,7 @@
             reactorInstaller.Name = "reactorInstaller";
             reactorInstaller.Size = new Size(302, 46);
             reactorInstaller.TabIndex = 16;
-            reactorInstaller.Text = "安装Reactor(7.12s)";
+            reactorInstaller.Text = "安装Reactor(2.2.0)";
             reactorInstaller.UseVisualStyleBackColor = true;
             reactorInstaller.Click += reactorInstaller_Click;
             // 

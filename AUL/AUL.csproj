@@ -12,6 +12,7 @@
   <ItemGroup>
     <None Remove="Resources\AmongUs.MCI.v0.0.6.dll" />
     <None Remove="Resources\CrowdedMod.dll" />
+    <None Remove="Resources\Reactor.dll" />
     <None Remove="Resources\ServerInstaller.exe" />
   </ItemGroup>
 
@@ -22,6 +23,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\AmongUs.MCI.v0.0.6.dll" />
     <EmbeddedResource Include="Resources\CrowdedMod.dll" />
+    <EmbeddedResource Include="Resources\Reactor.dll" />
     <EmbeddedResource Include="Resources\ServerInstaller.exe" />
   </ItemGroup>
 
